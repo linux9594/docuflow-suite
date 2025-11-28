@@ -1,12 +1,13 @@
 import imageCompression from 'browser-image-compression';
 import { jsPDF } from 'jspdf';
 
-export async function compressImage(file: File, maxSizeMB: number = 1): Promise<Blob> {
+export async function compressImage(file: File, maxSizeMB: number = 0.5): Promise<Blob> {
   const options = {
     maxSizeMB,
     maxWidthOrHeight: 1920,
     useWebWorker: true,
-    fileType: file.type,
+    initialQuality: 0.7,
+    alwaysKeepResolution: false,
   };
   
   try {
