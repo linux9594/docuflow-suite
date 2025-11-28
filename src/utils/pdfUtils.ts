@@ -1,9 +1,11 @@
 import { PDFDocument } from 'pdf-lib';
-import * as pdfjsLib from 'pdfjs-dist';
+import { GlobalWorkerOptions, getDocument } from 'pdfjs-dist';
+import pdfWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
 import { jsPDF } from 'jspdf';
 
-// Set up PDF.js worker
-pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
+// Set up PDF.js worker for client-side usage with Vite
+GlobalWorkerOptions.workerSrc = pdfWorker;
+
 
 export async function compressPDF(file: File, targetSizeKB?: number): Promise<Blob> {
   const arrayBuffer = await file.arrayBuffer();
@@ -18,14 +20,14 @@ export async function compressPDF(file: File, targetSizeKB?: number): Promise<Bl
 }
 
 async function standardCompressPDF(arrayBuffer: ArrayBuffer): Promise<Blob> {
-  // Convert PDF pages to images and recreate with reduced quality (40-60% compression)
-  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+  // Convert PDF pages to images and recreate with reduced quality aiming for ~40-60% size reduction
+  const pdf = await getDocument({ data: arrayBuffer }).promise;
   const newPdf = new jsPDF();
   let isFirstPage = true;
   
   for (let i = 1; i <= pdf.numPages; i++) {
     const page = await pdf.getPage(i);
-    const viewport = page.getViewport({ scale: 1.5 });
+    const viewport = page.getViewport({ scale: 1.2 });
     
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d');
@@ -39,9 +41,9 @@ async function standardCompressPDF(arrayBuffer: ArrayBuffer): Promise<Blob> {
       viewport: viewport,
     } as any).promise;
     
-    // Compress image to JPEG with quality 0.6 (40-60% compression)
-    const imgData = canvas.toDataURL('image/jpeg', 0.6);
-    
+    // Compress image to JPEG with quality 0.5 (typically 40-60% compression depending on content)
+    const imgData = canvas.toDataURL('image/jpeg', 0.5);
+
     if (!isFirstPage) {
       newPdf.addPage();
     }
@@ -56,15 +58,15 @@ async function standardCompressPDF(arrayBuffer: ArrayBuffer): Promise<Blob> {
 }
 
 async function aggressiveCompressPDF(arrayBuffer: ArrayBuffer, targetSizeKB: number): Promise<Blob> {
-  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+  const pdf = await getDocument({ data: arrayBuffer }).promise;
   const numPages = pdf.numPages;
   
-  // Start with very low quality and scale
-  let quality = 0.3;
-  let scale = 0.8;
+  // Start with moderate quality/scale and aggressively reduce towards target
+  let quality = 0.4;
+  let scale = 1.0;
   let attempts = 0;
-  const maxAttempts = 8;
-  
+  const maxAttempts = 10;
+
   while (attempts < maxAttempts) {
     const newPdf = new jsPDF();
     let isFirstPage = true;
@@ -101,19 +103,19 @@ async function aggressiveCompressPDF(arrayBuffer: ArrayBuffer, targetSizeKB: num
     const resultBlob = newPdf.output('blob');
     const currentSizeKB = resultBlob.size / 1024;
     
-    // If we're within 10% of target or below, we're done
-    if (currentSizeKB <= targetSizeKB * 1.1) {
+    // If we're within ~15% of target or below, we're done
+    if (currentSizeKB <= targetSizeKB * 1.15) {
       return resultBlob;
     }
     
-    // Adjust quality and scale for next attempt
+    // Adjust quality and scale for next attempt (clamped to avoid going to 0)
     const ratio = targetSizeKB / currentSizeKB;
-    quality = Math.max(quality * ratio * 0.85, 0.1);
-    scale = Math.max(scale * Math.sqrt(ratio), 0.4);
+    quality = Math.max(quality * ratio * 0.85, 0.05);
+    scale = Math.max(scale * Math.sqrt(ratio), 0.2);
     
     attempts++;
   }
-  
+
   // Return best effort
   const finalPdf = new jsPDF();
   let isFirstPage = true;
@@ -188,14 +190,14 @@ export async function splitPDF(file: File, pageRanges: { start: number; end: num
 
 export async function pdfToImages(file: File): Promise<string[]> {
   const arrayBuffer = await file.arrayBuffer();
-  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-  
+  const pdf = await getDocument({ data: arrayBuffer }).promise;
+
   const images: string[] = [];
   
   for (let i = 1; i <= pdf.numPages; i++) {
     const page = await pdf.getPage(i);
     const viewport = page.getViewport({ scale: 2.0 });
-    
+
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d');
     

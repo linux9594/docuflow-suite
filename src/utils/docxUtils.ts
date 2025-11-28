@@ -2,6 +2,10 @@ import mammoth from 'mammoth';
 import { jsPDF } from 'jspdf';
 import { Document, Packer, Paragraph, TextRun } from 'docx';
 import { saveAs } from 'file-saver';
+import { GlobalWorkerOptions as PdfGlobalWorkerOptions, getDocument as pdfGetDocument } from 'pdfjs-dist';
+import pdfWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
+
+PdfGlobalWorkerOptions.workerSrc = pdfWorker;
 
 export async function wordToPDF(file: File): Promise<Blob> {
   try {
@@ -100,13 +104,10 @@ export async function pdfToWord(pdfText: string): Promise<Blob> {
 
 export async function extractTextFromPDF(file: File): Promise<string> {
   try {
-    // Use pdf.js to properly extract text
-    const pdfjsLib = await import('pdfjs-dist');
-    pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
-    
+    // Use pdf.js to properly extract text (client-side, no backend)
     const arrayBuffer = await file.arrayBuffer();
-    const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-    
+    const pdf = await pdfGetDocument({ data: arrayBuffer }).promise;
+
     let fullText = '';
     
     // Extract text from each page
