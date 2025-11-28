@@ -1,7 +1,7 @@
 import mammoth from 'mammoth';
 import { jsPDF } from 'jspdf';
-// @ts-ignore
-import htmlDocx from 'html-docx-js/dist/html-docx';
+import { Document, Packer, Paragraph, TextRun } from 'docx';
+import { saveAs } from 'file-saver';
 
 export async function wordToPDF(file: File): Promise<Blob> {
   try {
@@ -43,26 +43,23 @@ export async function wordToPDF(file: File): Promise<Blob> {
 
 export async function pdfToWord(pdfText: string): Promise<Blob> {
   try {
-    // Create HTML from text
-    const html = `
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <meta charset="utf-8">
-          <style>
-            body { font-family: Calibri, sans-serif; font-size: 11pt; line-height: 1.5; }
-            p { margin: 0 0 10pt 0; }
-          </style>
-        </head>
-        <body>
-          ${pdfText.split('\n').map(line => `<p>${line}</p>`).join('')}
-        </body>
-      </html>
-    `;
-    
-    // Convert HTML to DOCX
-    const docx = htmlDocx.asBlob(html);
-    return docx;
+    // Create a new document with the extracted text
+    const paragraphs = pdfText.split('\n').map(line => 
+      new Paragraph({
+        children: [new TextRun(line || ' ')],
+      })
+    );
+
+    const doc = new Document({
+      sections: [{
+        properties: {},
+        children: paragraphs,
+      }],
+    });
+
+    // Generate the DOCX file
+    const blob = await Packer.toBlob(doc);
+    return blob;
   } catch (error) {
     console.error('Error converting PDF to Word:', error);
     throw new Error('Failed to convert PDF to Word document');
@@ -70,7 +67,23 @@ export async function pdfToWord(pdfText: string): Promise<Blob> {
 }
 
 export async function extractTextFromPDF(file: File): Promise<string> {
-  // This is a simplified version - in production you'd use pdf.js
-  const text = await file.text();
-  return text;
+  // This is a simplified version - in production you'd use pdf.js with proper text extraction
+  try {
+    // For now, we'll use a basic approach
+    // In a real implementation, you'd use pdf.js getTextContent()
+    const arrayBuffer = await file.arrayBuffer();
+    const text = new TextDecoder().decode(arrayBuffer);
+    
+    // Extract readable text (very basic)
+    const cleanText = text
+      .replace(/[^\x20-\x7E\n]/g, ' ')
+      .split('\n')
+      .filter(line => line.trim().length > 0)
+      .join('\n');
+    
+    return cleanText || 'Unable to extract text from this PDF. The PDF might be image-based or use a complex encoding.';
+  } catch (error) {
+    console.error('Error extracting text from PDF:', error);
+    throw new Error('Failed to extract text from PDF');
+  }
 }
