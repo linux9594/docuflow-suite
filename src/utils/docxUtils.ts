@@ -94,8 +94,16 @@ export async function pdfToWord(pdfText: string): Promise<Blob> {
     });
 
     // Generate the DOCX file
-    const blob = await Packer.toBlob(doc);
-    return blob;
+    const generatedBlob = (await Packer.toBlob(doc)) as Blob;
+
+    // Ensure correct MIME type for better compatibility
+    if (!generatedBlob.type || generatedBlob.type === 'application/octet-stream') {
+      return new Blob([generatedBlob], {
+        type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      });
+    }
+
+    return generatedBlob;
   } catch (error) {
     console.error('Error converting PDF to Word:', error);
     throw new Error('Failed to convert PDF to Word document');
