@@ -22,20 +22,11 @@ const Header = () => {
                 <span className="hidden sm:inline">Home</span>
               </Link>
             )}
-            <a href="#" className="hidden md:block text-muted-foreground font-medium hover:text-primary transition-colors">
-              Solutions
-            </a>
-            <a href="#" className="hidden md:block text-muted-foreground font-medium hover:text-primary transition-colors">
+            <Link to="/features" className="hidden md:block text-muted-foreground font-medium hover:text-primary transition-colors">
               Features
-            </a>
-            <a href="#" className="hidden md:block text-muted-foreground font-medium hover:text-primary transition-colors">
+            </Link>
+            <a href="#contact" className="hidden md:block text-muted-foreground font-medium hover:text-primary transition-colors">
               Contact
-            </a>
-            <a 
-              href="#" 
-              className="bg-primary text-primary-foreground px-4 md:px-5 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 hover:bg-primary-dark hover:-translate-y-0.5 shadow-button hover:shadow-button-hover"
-            >
-              Sign Up
             </a>
           </nav>
         </div>

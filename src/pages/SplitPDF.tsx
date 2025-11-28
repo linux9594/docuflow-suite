@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Download, Loader2 } from "lucide-react";
 import { saveAs } from "file-saver";
 import JSZip from "jszip";
+import { PDFDocument } from 'pdf-lib';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FileUpload from "@/components/FileUpload";
@@ -15,11 +16,21 @@ const SplitPDF = () => {
   const [splitFiles, setSplitFiles] = useState<Blob[]>([]);
   const [isProcessing, setIsProcessing] = useState(false);
   const [pageRanges, setPageRanges] = useState<string>("1-end");
+  const [totalPages, setTotalPages] = useState<number>(0);
   const { toast } = useToast();
 
-  const handleFileSelect = (selectedFile: File) => {
+  const handleFileSelect = async (selectedFile: File) => {
     setFile(selectedFile);
     setSplitFiles([]);
+    
+    // Get page count
+    try {
+      const arrayBuffer = await selectedFile.arrayBuffer();
+      const pdfDoc = await PDFDocument.load(arrayBuffer);
+      setTotalPages(pdfDoc.getPageCount());
+    } catch (error) {
+      console.error('Error getting page count:', error);
+    }
   };
 
   const handleSplit = async () => {
@@ -86,6 +97,12 @@ const SplitPDF = () => {
 
             {file && splitFiles.length === 0 && (
               <div className="mt-8 space-y-4">
+                {totalPages > 0 && (
+                  <div className="bg-muted rounded-lg p-4 text-center">
+                    <p className="text-sm text-muted-foreground">Total Pages</p>
+                    <p className="text-3xl font-bold text-primary">{totalPages}</p>
+                  </div>
+                )}
                 <div>
                   <label className="block text-sm font-medium mb-2 text-foreground">
                     Page Ranges (e.g., "1-3, 5-end")

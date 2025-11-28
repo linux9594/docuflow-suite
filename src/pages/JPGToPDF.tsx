@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Download, Loader2 } from "lucide-react";
 import { saveAs } from "file-saver";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FileUpload from "@/components/FileUpload";
@@ -134,6 +135,24 @@ const JPGToPDF = () => {
               </div>
             )}
           </div>
+
+          <section className="mt-16 prose prose-slate dark:prose-invert max-w-4xl mx-auto">
+            <div className="bg-card rounded-xl p-8 border border-border space-y-6">
+              <h2 className="text-3xl font-bold text-foreground">JPG to PDF Converter</h2>
+              <p className="text-muted-foreground">Convert JPG images into a single PDF file instantly. No app required, works directly on your browser, free and secure.</p>
+              <h3 className="text-2xl font-bold text-foreground">How to Convert JPG to PDF</h3>
+              <ol className="list-decimal list-inside text-muted-foreground space-y-2">
+                <li>Upload one or multiple JPG images.</li>
+                <li>Arrange pages if needed.</li>
+                <li>Download your final PDF.</li>
+              </ol>
+              <h3 className="text-2xl font-bold text-foreground">Related Tools</h3>
+              <ul className="list-disc list-inside space-y-2">
+                <li><Link to="/image-compressor" className="text-primary hover:underline">Image Compressor</Link></li>
+                <li><Link to="/pdf-compressor" className="text-primary hover:underline">PDF Compressor</Link></li>
+              </ul>
+            </div>
+          </section>
         </div>
       </main>
 

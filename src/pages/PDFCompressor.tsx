@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Download, Loader2 } from "lucide-react";
 import { saveAs } from "file-saver";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FileUpload from "@/components/FileUpload";
@@ -127,6 +128,56 @@ const PDFCompressor = () => {
               </div>
             )}
           </div>
+
+          <section className="mt-16 prose prose-slate dark:prose-invert max-w-4xl mx-auto">
+            <div className="bg-card rounded-xl p-8 border border-border space-y-6">
+              <h2 className="text-3xl font-bold text-foreground">Fast and Free PDF Compressor</h2>
+              <p className="text-muted-foreground">
+                Our online PDF Compressor allows you to reduce PDF size instantly without installing any software. 
+                It works directly in your browser, uses secure on-device processing, and delivers high-quality 
+                compression suitable for job applications, online forms, and email attachments.
+              </p>
+              
+              <h3 className="text-2xl font-bold text-foreground">Why compress PDF?</h3>
+              <p className="text-muted-foreground">
+                Large PDF files are difficult to upload on government portals, college websites, and job portals. 
+                This tool helps you shrink PDF size while maintaining readability and formatting.
+              </p>
+              
+              <h3 className="text-2xl font-bold text-foreground">How to Compress PDF</h3>
+              <ol className="list-decimal list-inside text-muted-foreground space-y-2">
+                <li>Upload your PDF file using the Select button.</li>
+                <li>Wait a few seconds while the tool optimizes all pages.</li>
+                <li>Download your final compressed PDF instantly.</li>
+              </ol>
+              
+              <h3 className="text-2xl font-bold text-foreground">Features</h3>
+              <ul className="list-disc list-inside text-muted-foreground space-y-2">
+                <li>No watermark</li>
+                <li>No installation required</li>
+                <li>100 percent free and unlimited</li>
+                <li>Fast browser-based compression</li>
+              </ul>
+              
+              <h3 className="text-2xl font-bold text-foreground">Related Tools</h3>
+              <ul className="list-disc list-inside space-y-2">
+                <li><Link to="/compress-pdf-200kb" className="text-primary hover:underline">Compress PDF to 200KB</Link></li>
+                <li><Link to="/compress-pdf-100kb" className="text-primary hover:underline">Compress PDF to 100KB</Link></li>
+                <li><Link to="/image-compressor" className="text-primary hover:underline">Image Compressor</Link></li>
+                <li><Link to="/jpg-to-pdf" className="text-primary hover:underline">JPG to PDF</Link></li>
+              </ul>
+              
+              <h3 className="text-2xl font-bold text-foreground">Frequently Asked Questions</h3>
+              <h4 className="text-lg font-semibold text-foreground">Is your PDF compressor free?</h4>
+              <p className="text-muted-foreground">Yes, completely free with no account needed.</p>
+              
+              <h4 className="text-lg font-semibold text-foreground">Does it reduce quality?</h4>
+              <p className="text-muted-foreground">It optimizes size while keeping text readable and images clear.</p>
+              
+              <h4 className="text-lg font-semibold text-foreground">Do you store my files?</h4>
+              <p className="text-muted-foreground">No, all processing happens inside your browser for full privacy.</p>
+            </div>
+          </section>
         </div>
       </main>
 

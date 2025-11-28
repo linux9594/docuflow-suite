@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Download, Loader2 } from "lucide-react";
 import { saveAs } from "file-saver";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FileUpload from "@/components/FileUpload";
@@ -143,6 +144,27 @@ const CompressPDF100KB = () => {
               </div>
             )}
           </div>
+
+          <section className="mt-16 prose prose-slate dark:prose-invert max-w-4xl mx-auto">
+            <div className="bg-card rounded-xl p-8 border border-border space-y-6">
+              <h2 className="text-3xl font-bold text-foreground">Compress PDF to 100KB</h2>
+              <p className="text-muted-foreground">
+                This tool reduces your PDF file to 100KB for strict upload requirements. Useful for job applications, 
+                scholarship portals, and online verification forms.
+              </p>
+              <h3 className="text-2xl font-bold text-foreground">How to Use</h3>
+              <ol className="list-decimal list-inside text-muted-foreground space-y-2">
+                <li>Select your PDF.</li>
+                <li>Wait a few seconds as the file is optimized.</li>
+                <li>Download your compressed 100KB PDF.</li>
+              </ol>
+              <h3 className="text-2xl font-bold text-foreground">Related Tools</h3>
+              <ul className="list-disc list-inside space-y-2">
+                <li><Link to="/compress-pdf-200kb" className="text-primary hover:underline">Compress PDF to 200KB</Link></li>
+                <li><Link to="/pdf-to-jpg" className="text-primary hover:underline">PDF to JPG</Link></li>
+              </ul>
+            </div>
+          </section>
         </div>
       </main>
 
