@@ -27,7 +27,7 @@ const ImageCompressor = () => {
 
     setIsProcessing(true);
     try {
-      const compressed = await compressImage(file, 0.3);
+      const compressed = await compressImage(file, 0.2);
       setCompressedFile(compressed);
       setCompressedSize(compressed.size);
       toast({

@@ -15,6 +15,9 @@ import MergePDF from "./pages/MergePDF";
 import SplitPDF from "./pages/SplitPDF";
 import WordToPDF from "./pages/WordToPDF";
 import PDFToWord from "./pages/PDFToWord";
+import Features from "./pages/Features";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +39,9 @@ const App = () => (
           <Route path="/split-pdf" element={<SplitPDF />} />
           <Route path="/word-to-pdf" element={<WordToPDF />} />
           <Route path="/pdf-to-word" element={<PDFToWord />} />
+          <Route path="/features" element={<Features />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
