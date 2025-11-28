@@ -115,10 +115,35 @@ export async function extractTextFromPDF(file: File): Promise<string> {
       const page = await pdf.getPage(i);
       const textContent = await page.getTextContent();
       
-      // Combine text items with proper spacing
-      const pageText = textContent.items
-        .map((item: any) => item.str)
-        .join(' ');
+      // Better text extraction with proper spacing and line breaks
+      let lastY = -1;
+      let pageText = '';
+      
+      textContent.items.forEach((item: any, index: number) => {
+        // Check if item has the required properties (is TextItem, not TextMarkedContent)
+        if (!item.str || !item.transform) return;
+        
+        const currentY = item.transform[5];
+        
+        // Add line break if Y position changed significantly (new line)
+        if (lastY !== -1 && Math.abs(currentY - lastY) > 5) {
+          pageText += '\n';
+        }
+        
+        // Add the text with proper spacing
+        if (pageText.length > 0 && !pageText.endsWith('\n') && !pageText.endsWith(' ')) {
+          const prevItem = textContent.items[index - 1] as any;
+          if (prevItem && prevItem.transform && prevItem.width) {
+            const gap = item.transform[4] - (prevItem.transform[4] + prevItem.width);
+            if (gap > 1) {
+              pageText += ' ';
+            }
+          }
+        }
+        pageText += item.str;
+        
+        lastY = currentY;
+      });
       
       fullText += pageText + '\n\n';
     }
