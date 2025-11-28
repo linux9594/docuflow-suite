@@ -1,68 +1,152 @@
 import { PDFDocument } from 'pdf-lib';
 import * as pdfjsLib from 'pdfjs-dist';
+import { jsPDF } from 'jspdf';
 
 // Set up PDF.js worker
 pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
 
 export async function compressPDF(file: File, targetSizeKB?: number): Promise<Blob> {
   const arrayBuffer = await file.arrayBuffer();
-  const pdfDoc = await PDFDocument.load(arrayBuffer);
-  
-  let quality = 0.9;
-  let compressedPdf: Uint8Array;
   
   if (targetSizeKB) {
-    // Iteratively compress until we hit target size
-    let attempts = 0;
-    const maxAttempts = 10;
-    
-    while (attempts < maxAttempts) {
-      compressedPdf = await pdfDoc.save({
-        useObjectStreams: true,
-        addDefaultPage: false,
-        objectsPerTick: 50,
-      });
-      
-      const currentSizeKB = compressedPdf.length / 1024;
-      
-      if (currentSizeKB <= targetSizeKB) {
-        break;
-      }
-      
-      // Calculate new quality based on size ratio
-      const ratio = targetSizeKB / currentSizeKB;
-      quality *= Math.max(ratio * 0.9, 0.3);
-      
-      // Reload and compress again
-      const newPdfDoc = await PDFDocument.load(compressedPdf);
-      const pages = newPdfDoc.getPages();
-      
-      // Reduce image quality on pages
-      for (const page of pages) {
-        const { width, height } = page.getSize();
-        // Scale down if needed
-        if (quality < 0.7) {
-          page.scale(quality, quality);
-        }
-      }
-      
-      compressedPdf = await newPdfDoc.save({
-        useObjectStreams: true,
-        addDefaultPage: false,
-        objectsPerTick: 50,
-      });
-      
-      attempts++;
-    }
+    // For target sizes (100KB, 200KB), use aggressive image-based compression
+    return await aggressiveCompressPDF(arrayBuffer, targetSizeKB);
   } else {
-    compressedPdf = await pdfDoc.save({
-      useObjectStreams: true,
-      addDefaultPage: false,
-      objectsPerTick: 50,
-    });
+    // For normal compression (40-60%), use standard compression
+    return await standardCompressPDF(arrayBuffer);
+  }
+}
+
+async function standardCompressPDF(arrayBuffer: ArrayBuffer): Promise<Blob> {
+  // Convert PDF pages to images and recreate with reduced quality (40-60% compression)
+  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+  const newPdf = new jsPDF();
+  let isFirstPage = true;
+  
+  for (let i = 1; i <= pdf.numPages; i++) {
+    const page = await pdf.getPage(i);
+    const viewport = page.getViewport({ scale: 1.5 });
+    
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    if (!context) continue;
+    
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+    
+    await page.render({
+      canvasContext: context,
+      viewport: viewport,
+    } as any).promise;
+    
+    // Compress image to JPEG with quality 0.6 (40-60% compression)
+    const imgData = canvas.toDataURL('image/jpeg', 0.6);
+    
+    if (!isFirstPage) {
+      newPdf.addPage();
+    }
+    isFirstPage = false;
+    
+    const pageWidth = newPdf.internal.pageSize.getWidth();
+    const pageHeight = newPdf.internal.pageSize.getHeight();
+    newPdf.addImage(imgData, 'JPEG', 0, 0, pageWidth, pageHeight, undefined, 'FAST');
   }
   
-  return new Blob([compressedPdf as BlobPart], { type: 'application/pdf' });
+  return newPdf.output('blob');
+}
+
+async function aggressiveCompressPDF(arrayBuffer: ArrayBuffer, targetSizeKB: number): Promise<Blob> {
+  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+  const numPages = pdf.numPages;
+  
+  // Start with very low quality and scale
+  let quality = 0.3;
+  let scale = 0.8;
+  let attempts = 0;
+  const maxAttempts = 8;
+  
+  while (attempts < maxAttempts) {
+    const newPdf = new jsPDF();
+    let isFirstPage = true;
+    
+    for (let i = 1; i <= numPages; i++) {
+      const page = await pdf.getPage(i);
+      const viewport = page.getViewport({ scale: scale });
+      
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('2d');
+      if (!context) continue;
+      
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      
+      await page.render({
+        canvasContext: context,
+        viewport: viewport,
+      } as any).promise;
+      
+      // Aggressive JPEG compression
+      const imgData = canvas.toDataURL('image/jpeg', quality);
+      
+      if (!isFirstPage) {
+        newPdf.addPage();
+      }
+      isFirstPage = false;
+      
+      const pageWidth = newPdf.internal.pageSize.getWidth();
+      const pageHeight = newPdf.internal.pageSize.getHeight();
+      newPdf.addImage(imgData, 'JPEG', 0, 0, pageWidth, pageHeight, undefined, 'FAST');
+    }
+    
+    const resultBlob = newPdf.output('blob');
+    const currentSizeKB = resultBlob.size / 1024;
+    
+    // If we're within 10% of target or below, we're done
+    if (currentSizeKB <= targetSizeKB * 1.1) {
+      return resultBlob;
+    }
+    
+    // Adjust quality and scale for next attempt
+    const ratio = targetSizeKB / currentSizeKB;
+    quality = Math.max(quality * ratio * 0.85, 0.1);
+    scale = Math.max(scale * Math.sqrt(ratio), 0.4);
+    
+    attempts++;
+  }
+  
+  // Return best effort
+  const finalPdf = new jsPDF();
+  let isFirstPage = true;
+  
+  for (let i = 1; i <= numPages; i++) {
+    const page = await pdf.getPage(i);
+    const viewport = page.getViewport({ scale: scale });
+    
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    if (!context) continue;
+    
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+    
+    await page.render({
+      canvasContext: context,
+      viewport: viewport,
+    } as any).promise;
+    
+    const imgData = canvas.toDataURL('image/jpeg', quality);
+    
+    if (!isFirstPage) {
+      finalPdf.addPage();
+    }
+    isFirstPage = false;
+    
+    const pageWidth = finalPdf.internal.pageSize.getWidth();
+    const pageHeight = finalPdf.internal.pageSize.getHeight();
+    finalPdf.addImage(imgData, 'JPEG', 0, 0, pageWidth, pageHeight, undefined, 'FAST');
+  }
+  
+  return finalPdf.output('blob');
 }
 
 export async function mergePDFs(files: File[]): Promise<Blob> {
