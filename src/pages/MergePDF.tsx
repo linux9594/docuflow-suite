@@ -8,6 +8,7 @@ import FileUpload from "@/components/FileUpload";
 import { Button } from "@/components/ui/button";
 import { mergePDFs } from "@/utils/pdfUtils";
 import { useToast } from "@/hooks/use-toast";
+import { SEOHead } from "@/components/SEOHead";
 
 const MergePDF = () => {
   const [files, setFiles] = useState<File[]>([]);
@@ -60,8 +61,30 @@ const MergePDF = () => {
     setMergedFile(null);
   };
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Merge PDF",
+    "applicationCategory": "Utility",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Free online PDF merger tool. Combine multiple PDF files into one document. Fast, secure, and browser-based. No upload limits.",
+    "operatingSystem": "Any",
+    "url": "https://linux9594.github.io/compressor-vk/merge-pdf"
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      <SEOHead
+        title="Merge PDF Online Free - Combine Multiple PDF Files Into One"
+        description="Merge PDF files online for free. Combine multiple PDF documents into a single file. Fast, secure, browser-based. No signup required. Merge PDF files now!"
+        keywords="merge pdf, combine pdf, pdf merger, merge pdf files online, combine pdf files, pdf combiner, join pdf, merge pdf online free, pdf merge tool"
+        canonical="/merge-pdf"
+        schema={schema}
+      />
       <Header />
       
       <main className="flex-1 py-16">

@@ -8,6 +8,7 @@ import FileUpload from "@/components/FileUpload";
 import { Button } from "@/components/ui/button";
 import { imagesToPDF } from "@/utils/imageUtils";
 import { useToast } from "@/hooks/use-toast";
+import { SEOHead } from "@/components/SEOHead";
 
 const JPGToPDF = () => {
   const [files, setFiles] = useState<File[]>([]);
@@ -53,8 +54,30 @@ const JPGToPDF = () => {
     setPdfFile(null);
   };
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "JPG to PDF Converter",
+    "applicationCategory": "Utility",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Free online JPG to PDF converter. Convert JPG, JPEG, PNG images to PDF. Combine multiple images into one PDF document.",
+    "operatingSystem": "Any",
+    "url": "https://linux9594.github.io/compressor-vk/jpg-to-pdf"
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      <SEOHead
+        title="JPG to PDF Converter Online Free - Convert Images to PDF"
+        description="Convert JPG to PDF online for free. Transform JPEG, PNG, and other image formats to PDF. Combine multiple images into one PDF. Fast, secure, browser-based. Convert now!"
+        keywords="jpg to pdf, jpeg to pdf, image to pdf, png to pdf, convert jpg to pdf, jpg to pdf converter, image to pdf converter, pictures to pdf"
+        canonical="/jpg-to-pdf"
+        schema={schema}
+      />
       <Header />
       
       <main className="flex-1 py-16">

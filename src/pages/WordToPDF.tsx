@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Download, Loader2 } from "lucide-react";
 import { saveAs } from "file-saver";
-import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FileUpload from "@/components/FileUpload";
 import { Button } from "@/components/ui/button";
 import { wordToPDF } from "@/utils/docxUtils";
 import { useToast } from "@/hooks/use-toast";
+import { SEOHead } from "@/components/SEOHead";
 
 const WordToPDF = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -49,8 +49,30 @@ const WordToPDF = () => {
     }
   };
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Word to PDF Converter",
+    "applicationCategory": "Utility",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Free online Word to PDF converter. Convert DOCX and DOC files to PDF format. Preserve formatting and layout.",
+    "operatingSystem": "Any",
+    "url": "https://linux9594.github.io/compressor-vk/word-to-pdf"
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      <SEOHead
+        title="Word to PDF Converter Online Free - Convert DOCX to PDF"
+        description="Convert Word to PDF online for free. Transform DOCX and DOC files into PDF format. Preserve formatting and layout. Fast, secure, browser-based. Convert Word to PDF now!"
+        keywords="word to pdf, docx to pdf, doc to pdf, convert word to pdf, word to pdf converter, docx to pdf converter, microsoft word to pdf"
+        canonical="/word-to-pdf"
+        schema={schema}
+      />
       <Header />
       
       <main className="flex-1 py-16">

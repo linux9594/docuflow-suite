@@ -8,6 +8,7 @@ import FileUpload from "@/components/FileUpload";
 import { Button } from "@/components/ui/button";
 import { pdfToImages } from "@/utils/pdfUtils";
 import { useToast } from "@/hooks/use-toast";
+import { SEOHead } from "@/components/SEOHead";
 
 const PDFToJPG = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -63,8 +64,30 @@ const PDFToJPG = () => {
     link.click();
   };
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PDF to JPG Converter",
+    "applicationCategory": "Utility",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Free online PDF to JPG converter. Convert PDF pages to JPG images. Extract images from PDF files. Fast and secure.",
+    "operatingSystem": "Any",
+    "url": "https://linux9594.github.io/compressor-vk/pdf-to-jpg"
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      <SEOHead
+        title="PDF to JPG Converter Online Free - Convert PDF to Images"
+        description="Convert PDF to JPG online for free. Transform PDF pages into high-quality JPG images. Extract images from PDF files. Fast, secure, browser-based. Convert PDF to JPG now!"
+        keywords="pdf to jpg, pdf to jpeg, pdf to image, convert pdf to jpg, pdf to jpg converter, pdf to image converter, extract images from pdf"
+        canonical="/pdf-to-jpg"
+        schema={schema}
+      />
       <Header />
       
       <main className="flex-1 py-16">

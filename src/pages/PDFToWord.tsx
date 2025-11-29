@@ -7,6 +7,7 @@ import FileUpload from "@/components/FileUpload";
 import { Button } from "@/components/ui/button";
 import { extractTextFromPDF, pdfToWord } from "@/utils/docxUtils";
 import { useToast } from "@/hooks/use-toast";
+import { SEOHead } from "@/components/SEOHead";
 
 const PDFToWord = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -49,8 +50,30 @@ const PDFToWord = () => {
     }
   };
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PDF to Word Converter",
+    "applicationCategory": "Utility",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Free online PDF to Word converter. Convert PDF files to editable DOCX format. Preserve formatting and layout.",
+    "operatingSystem": "Any",
+    "url": "https://linux9594.github.io/compressor-vk/pdf-to-word"
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      <SEOHead
+        title="PDF to Word Converter Online Free - Convert PDF to DOCX"
+        description="Convert PDF to Word online for free. Transform PDF files into editable DOCX format. Preserve formatting and layout. Fast, secure, browser-based. Convert PDF to Word now!"
+        keywords="pdf to word, pdf to docx, convert pdf to word, pdf to word converter, pdf to docx converter, pdf to editable word"
+        canonical="/pdf-to-word"
+        schema={schema}
+      />
       <Header />
       
       <main className="flex-1 py-16">

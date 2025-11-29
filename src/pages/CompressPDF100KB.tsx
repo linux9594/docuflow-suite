@@ -8,6 +8,7 @@ import FileUpload from "@/components/FileUpload";
 import { Button } from "@/components/ui/button";
 import { compressPDF } from "@/utils/pdfUtils";
 import { useToast } from "@/hooks/use-toast";
+import { SEOHead } from "@/components/SEOHead";
 
 const CompressPDF100KB = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -63,8 +64,30 @@ const CompressPDF100KB = () => {
     }
   };
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Compress PDF to 100KB",
+    "applicationCategory": "Utility",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Compress PDF to 100KB or less online free. Perfect for email attachments and online forms. Fast, secure compression with quality preservation.",
+    "operatingSystem": "Any",
+    "url": "https://linux9594.github.io/compressor-vk/compress-pdf-100kb"
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      <SEOHead
+        title="Compress PDF to 100KB Online Free - Reduce PDF Size to 100KB"
+        description="Compress PDF to 100KB or less for free. Perfect for email attachments and online forms. Fast, secure, browser-based PDF compression. No upload limits. Compress PDF to 100KB now!"
+        keywords="compress pdf to 100kb, reduce pdf to 100kb, pdf compressor 100kb, compress pdf file to 100kb, pdf size reducer 100kb, make pdf 100kb, shrink pdf to 100kb"
+        canonical="/compress-pdf-100kb"
+        schema={schema}
+      />
       <Header />
       
       <main className="flex-1 py-16">

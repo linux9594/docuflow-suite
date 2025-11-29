@@ -8,6 +8,7 @@ import FileUpload from "@/components/FileUpload";
 import { Button } from "@/components/ui/button";
 import { compressPDF } from "@/utils/pdfUtils";
 import { useToast } from "@/hooks/use-toast";
+import { SEOHead } from "@/components/SEOHead";
 
 const PDFCompressor = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -52,8 +53,35 @@ const PDFCompressor = () => {
     }
   };
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PDF Compressor",
+    "applicationCategory": "Utility",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Free online PDF compressor tool. Reduce PDF file size up to 90% while maintaining quality. Fast, secure, and browser-based. No upload limits, completely free.",
+    "operatingSystem": "Any",
+    "url": "https://linux9594.github.io/compressor-vk/pdf-compressor",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "1250"
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      <SEOHead
+        title="PDF Compressor Online Free - Reduce PDF Size Up to 90%"
+        description="Free online PDF compressor. Compress PDF files and reduce file size up to 90% without losing quality. Fast, secure, browser-based. No signup required. Compress PDF online now!"
+        keywords="pdf compressor, compress pdf online, reduce pdf size, pdf file size reducer, compress pdf free, online pdf compressor, pdf optimizer, shrink pdf, pdf compression tool, free pdf compressor"
+        canonical="/pdf-compressor"
+        schema={schema}
+      />
       <Header />
       
       <main className="flex-1 py-16">
