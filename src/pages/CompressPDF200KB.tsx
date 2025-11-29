@@ -8,6 +8,7 @@ import FileUpload from "@/components/FileUpload";
 import { Button } from "@/components/ui/button";
 import { compressPDF } from "@/utils/pdfUtils";
 import { useToast } from "@/hooks/use-toast";
+import { SEOHead } from "@/components/SEOHead";
 
 const CompressPDF200KB = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -63,8 +64,30 @@ const CompressPDF200KB = () => {
     }
   };
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Compress PDF to 200KB",
+    "applicationCategory": "Utility",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Compress PDF to 200KB or less online free. Ideal for uploads and sharing. Fast, secure compression with quality preservation.",
+    "operatingSystem": "Any",
+    "url": "https://linux9594.github.io/compressor-vk/compress-pdf-200kb"
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      <SEOHead
+        title="Compress PDF to 200KB Online Free - Reduce PDF Size to 200KB"
+        description="Compress PDF to 200KB or less for free. Perfect for online uploads and sharing. Fast, secure, browser-based PDF compression. No signup required. Compress PDF to 200KB now!"
+        keywords="compress pdf to 200kb, reduce pdf to 200kb, pdf compressor 200kb, compress pdf file to 200kb, pdf size reducer 200kb, make pdf 200kb, shrink pdf to 200kb"
+        canonical="/compress-pdf-200kb"
+        schema={schema}
+      />
       <Header />
       
       <main className="flex-1 py-16">

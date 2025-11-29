@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { splitPDF } from "@/utils/pdfUtils";
 import { useToast } from "@/hooks/use-toast";
+import { SEOHead } from "@/components/SEOHead";
 
 const SplitPDF = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -75,8 +76,30 @@ const SplitPDF = () => {
     saveAs(splitFiles[index], `split_${index + 1}.pdf`);
   };
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Split PDF",
+    "applicationCategory": "Utility",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Free online PDF splitter tool. Extract and split PDF pages into separate files. Fast, secure, and browser-based.",
+    "operatingSystem": "Any",
+    "url": "https://linux9594.github.io/compressor-vk/split-pdf"
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      <SEOHead
+        title="Split PDF Online Free - Extract & Divide PDF Pages"
+        description="Split PDF files online for free. Extract and divide PDF pages into separate documents. Fast, secure, browser-based. No signup required. Split PDF now!"
+        keywords="split pdf, divide pdf, extract pdf pages, pdf splitter, split pdf pages, pdf page extractor, separate pdf pages, split pdf online free"
+        canonical="/split-pdf"
+        schema={schema}
+      />
       <Header />
       
       <main className="flex-1 py-16">

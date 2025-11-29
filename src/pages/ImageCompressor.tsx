@@ -7,6 +7,7 @@ import FileUpload from "@/components/FileUpload";
 import { Button } from "@/components/ui/button";
 import { compressImage } from "@/utils/imageUtils";
 import { useToast } from "@/hooks/use-toast";
+import { SEOHead } from "@/components/SEOHead";
 
 const ImageCompressor = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -52,8 +53,30 @@ const ImageCompressor = () => {
     }
   };
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Image Compressor",
+    "applicationCategory": "Utility",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Free online image compressor. Compress JPG, PNG, and other image formats. Reduce image size up to 80% while maintaining quality.",
+    "operatingSystem": "Any",
+    "url": "https://linux9594.github.io/compressor-vk/image-compressor"
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      <SEOHead
+        title="Image Compressor Online Free - Compress JPG, PNG Images"
+        description="Free online image compressor. Compress JPG, PNG, and image files. Reduce image size up to 80% without losing quality. Fast, secure, browser-based. Compress images now!"
+        keywords="image compressor, compress image, compress jpg, compress png, reduce image size, image optimizer, photo compressor, compress image online free, image size reducer"
+        canonical="/image-compressor"
+        schema={schema}
+      />
       <Header />
       
       <main className="flex-1 py-16">
