@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { extractTextFromPDF, pdfToWord } from "@/utils/docxUtils";
 import { useToast } from "@/hooks/use-toast";
 import { SEOHead } from "@/components/SEOHead";
+import { ToolBreadcrumb } from "@/components/ToolBreadcrumb";
 
 const PDFToWord = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -75,8 +76,9 @@ const PDFToWord = () => {
         schema={schema}
       />
       <Header />
+      <ToolBreadcrumb toolName="PDF to Word" toolPath="/pdf-to-word" />
       
-      <main className="flex-1 py-16">
+      <main className="flex-1 py-12">
         <div className="container mx-auto px-6 max-w-3xl">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-black mb-4 text-foreground">

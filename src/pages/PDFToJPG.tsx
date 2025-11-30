@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { pdfToImages } from "@/utils/pdfUtils";
 import { useToast } from "@/hooks/use-toast";
 import { SEOHead } from "@/components/SEOHead";
+import { ToolBreadcrumb } from "@/components/ToolBreadcrumb";
 
 const PDFToJPG = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -89,8 +90,9 @@ const PDFToJPG = () => {
         schema={schema}
       />
       <Header />
+      <ToolBreadcrumb toolName="PDF to JPG" toolPath="/pdf-to-jpg" />
       
-      <main className="flex-1 py-16">
+      <main className="flex-1 py-12">
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-black mb-4 text-foreground">PDF to JPG</h1>

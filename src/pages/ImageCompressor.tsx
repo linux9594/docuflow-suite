@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { compressImage } from "@/utils/imageUtils";
 import { useToast } from "@/hooks/use-toast";
 import { SEOHead } from "@/components/SEOHead";
+import { ToolBreadcrumb } from "@/components/ToolBreadcrumb";
 
 const ImageCompressor = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -78,8 +79,9 @@ const ImageCompressor = () => {
         schema={schema}
       />
       <Header />
+      <ToolBreadcrumb toolName="Image Compressor" toolPath="/image-compressor" />
       
-      <main className="flex-1 py-16">
+      <main className="flex-1 py-12">
         <div className="container mx-auto px-6 max-w-3xl">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-black mb-4 text-foreground">
