@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { mergePDFs } from "@/utils/pdfUtils";
 import { useToast } from "@/hooks/use-toast";
 import { SEOHead } from "@/components/SEOHead";
+import { ToolBreadcrumb } from "@/components/ToolBreadcrumb";
 
 const MergePDF = () => {
   const [files, setFiles] = useState<File[]>([]);
@@ -86,8 +87,9 @@ const MergePDF = () => {
         schema={schema}
       />
       <Header />
+      <ToolBreadcrumb toolName="Merge PDF" toolPath="/merge-pdf" />
       
-      <main className="flex-1 py-16">
+      <main className="flex-1 py-12">
         <div className="container mx-auto px-6 max-w-3xl">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-black mb-4 text-foreground">Merge PDF</h1>
