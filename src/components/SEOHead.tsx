@@ -14,10 +14,10 @@ export const SEOHead = ({
   description, 
   keywords, 
   canonical,
-  ogImage = "https://lovable.dev/opengraph-image-p98pqg.png",
+  ogImage = "https://linux9594.github.io/compressor-vk/logo.png",
   schema 
 }: SEOHeadProps) => {
-  const fullTitle = `${title} | V.K Tools - Free Online Tool`;
+  const fullTitle = `${title} | PDF COMPRESSOR - Free Online Tool`;
   const baseUrl = "https://linux9594.github.io/compressor-vk";
   const fullCanonical = `${baseUrl}${canonical}`;
 
@@ -36,7 +36,7 @@ export const SEOHead = ({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage} />
-      <meta property="og:site_name" content="V.K Tools" />
+      <meta property="og:site_name" content="PDF COMPRESSOR" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -49,7 +49,7 @@ export const SEOHead = ({
       <meta name="robots" content="index, follow" />
       <meta name="language" content="English" />
       <meta name="revisit-after" content="7 days" />
-      <meta name="author" content="V.K Tools" />
+      <meta name="author" content="PDF COMPRESSOR" />
 
       {/* Schema Markup */}
       {schema && (
