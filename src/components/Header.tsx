@@ -10,7 +10,7 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <Link to="/" className="text-3xl font-black text-foreground tracking-tight hover:text-primary transition-colors">
-            <span className="text-primary mr-0.5">V.K</span> Tools
+            <span className="text-primary mr-0.5">PDF</span> COMPRESSOR
           </Link>
           <nav className="flex items-center gap-4 md:gap-8">
             {!isHomePage && (
