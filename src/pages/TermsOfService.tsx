@@ -1,9 +1,39 @@
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const TermsOfService = () => {
+  const baseUrl = "https://linux9594.github.io/compressor-vk";
+  
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": baseUrl
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Terms of Service",
+        "item": `${baseUrl}/terms-of-service`
+      }
+    ]
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      <Helmet>
+        <title>Terms of Service | PDF COMPRESSOR - Free Online Tool</title>
+        <meta name="description" content="Terms of Service for PDF COMPRESSOR. Read our terms and conditions for using our free online PDF and image tools." />
+        <link rel="canonical" href={`${baseUrl}/terms-of-service`} />
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
+      </Helmet>
       <Header />
       
       <main className="flex-1 py-16">
