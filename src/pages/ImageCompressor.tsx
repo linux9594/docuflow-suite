@@ -74,7 +74,7 @@ const ImageCompressor = () => {
       <SEOHead
         title="Image Compressor Online Free - Compress JPG, PNG Images"
         description="Free online image compressor. Compress JPG, PNG, and image files. Reduce image size up to 80% without losing quality. Fast, secure, browser-based. Compress images now!"
-        keywords="image compressor, compress image, compress jpg, compress png, reduce image size, image optimizer, photo compressor, compress image online free, image size reducer"
+        keywords="image compressor, compress image, compress jpg, compress png, reduce image size, image optimizer, photo compressor, compress image online free, image size reducer, how to compress images, reduce photo size, optimize images, compress photo, shrink image size, compress jpeg online, compress png online, image compression tool, photo size reducer, compress image without losing quality, reduce image file size, optimize image size, compress pictures"
         canonical="/image-compressor"
         schema={schema}
       />

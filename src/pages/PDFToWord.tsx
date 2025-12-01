@@ -71,7 +71,7 @@ const PDFToWord = () => {
       <SEOHead
         title="PDF to Word Converter Online Free - Convert PDF to DOCX"
         description="Convert PDF to Word online for free. Transform PDF files into editable DOCX format. Preserve formatting and layout. Fast, secure, browser-based. Convert PDF to Word now!"
-        keywords="pdf to word, pdf to docx, convert pdf to word, pdf to word converter, pdf to docx converter, pdf to editable word"
+        keywords="pdf to word, pdf to docx, convert pdf to word, pdf to word converter, pdf to docx converter, pdf to editable word, how to convert pdf to word, pdf to word online free, pdf to doc converter, pdf to word document, convert pdf to word editable, pdf to microsoft word, pdf to word converter online, transform pdf to word, pdf to word free, edit pdf in word, pdf to docx online free"
         canonical="/pdf-to-word"
         schema={schema}
       />

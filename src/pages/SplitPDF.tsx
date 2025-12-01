@@ -97,7 +97,7 @@ const SplitPDF = () => {
       <SEOHead
         title="Split PDF Online Free - Extract & Divide PDF Pages"
         description="Split PDF files online for free. Extract and divide PDF pages into separate documents. Fast, secure, browser-based. No signup required. Split PDF now!"
-        keywords="split pdf, divide pdf, extract pdf pages, pdf splitter, split pdf pages, pdf page extractor, separate pdf pages, split pdf online free"
+        keywords="split pdf, divide pdf, extract pdf pages, pdf splitter, split pdf pages, pdf page extractor, separate pdf pages, split pdf online free, how to split pdf, split pdf into multiple files, divide pdf into pages, extract pages from pdf, split pdf by pages, pdf separator, break pdf into parts, split pdf document, pdf page splitter, split large pdf, split pdf file online, separate pdf documents"
         canonical="/split-pdf"
         schema={schema}
       />

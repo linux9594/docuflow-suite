@@ -85,7 +85,7 @@ const PDFToJPG = () => {
       <SEOHead
         title="PDF to JPG Converter Online Free - Convert PDF to Images"
         description="Convert PDF to JPG online for free. Transform PDF pages into high-quality JPG images. Extract images from PDF files. Fast, secure, browser-based. Convert PDF to JPG now!"
-        keywords="pdf to jpg, pdf to jpeg, pdf to image, convert pdf to jpg, pdf to jpg converter, pdf to image converter, extract images from pdf"
+        keywords="pdf to jpg, pdf to jpeg, pdf to image, convert pdf to jpg, pdf to jpg converter, pdf to image converter, extract images from pdf, how to convert pdf to jpg, pdf to jpeg online, pdf to png, pdf pages to images, convert pdf to jpg online free, pdf to jpg high quality, save pdf as jpg, export pdf to jpg, pdf to image online, pdf to photo converter, convert pdf pages to images"
         canonical="/pdf-to-jpg"
         schema={schema}
       />

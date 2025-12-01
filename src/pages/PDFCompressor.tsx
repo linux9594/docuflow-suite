@@ -109,9 +109,9 @@ const PDFCompressor = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <SEOHead
-        title="PDF Compressor Online Free - Reduce PDF Size Up to 90%"
-        description="Free online PDF compressor. Compress PDF files and reduce file size up to 90% without losing quality. Fast, secure, browser-based. No signup required. Compress PDF online now!"
-        keywords="pdf compressor, compress pdf online, reduce pdf size, pdf file size reducer, compress pdf free, online pdf compressor, pdf optimizer, shrink pdf, pdf compression tool, free pdf compressor"
+        title="PDF Compressor Online Free - Reduce PDF File Size"
+        description="Free online PDF compressor tool. Reduce PDF file size up to 90% while maintaining quality. Fast, secure, and browser-based. No upload limits, completely free to use."
+        keywords="pdf compressor, compress pdf, reduce pdf size, compress pdf online, pdf compression, shrink pdf, pdf optimizer, compress pdf file, reduce pdf file size, free pdf compressor, how to compress pdf, make pdf smaller, pdf size reducer, online pdf compressor, compress large pdf, compress pdf without losing quality, best pdf compressor, compress pdf to smaller size, decrease pdf size, minimize pdf size, pdf file size reducer, adobe pdf compressor alternative, smallpdf alternative, ilovepdf alternative, pdf compression tool"
         canonical="/pdf-compressor"
         schema={schema}
       />

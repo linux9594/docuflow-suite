@@ -70,7 +70,7 @@ const WordToPDF = () => {
       <SEOHead
         title="Word to PDF Converter Online Free - Convert DOCX to PDF"
         description="Convert Word to PDF online for free. Transform DOCX and DOC files into PDF format. Preserve formatting and layout. Fast, secure, browser-based. Convert Word to PDF now!"
-        keywords="word to pdf, docx to pdf, doc to pdf, convert word to pdf, word to pdf converter, docx to pdf converter, microsoft word to pdf"
+        keywords="word to pdf, docx to pdf, doc to pdf, convert word to pdf, word to pdf converter, docx to pdf converter, microsoft word to pdf, how to convert word to pdf, word document to pdf, word file to pdf, ms word to pdf, convert word document to pdf online, word to pdf online free, save word as pdf, export word to pdf, docx to pdf online, word to pdf converter free download, convert doc to pdf online"
         canonical="/word-to-pdf"
         schema={schema}
       />
