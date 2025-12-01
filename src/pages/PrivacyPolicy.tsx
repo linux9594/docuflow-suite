@@ -1,9 +1,39 @@
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const PrivacyPolicy = () => {
+  const baseUrl = "https://linux9594.github.io/compressor-vk";
+  
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": baseUrl
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Privacy Policy",
+        "item": `${baseUrl}/privacy-policy`
+      }
+    ]
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      <Helmet>
+        <title>Privacy Policy | PDF COMPRESSOR - Free Online Tool</title>
+        <meta name="description" content="Privacy policy for PDF COMPRESSOR. Learn how we protect your data and ensure complete privacy with client-side processing." />
+        <link rel="canonical" href={`${baseUrl}/privacy-policy`} />
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
+      </Helmet>
       <Header />
       
       <main className="flex-1 py-16">

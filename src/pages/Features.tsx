@@ -15,6 +15,27 @@ import Footer from "@/components/Footer";
 import { SEOHead } from "@/components/SEOHead";
 
 const Features = () => {
+  const baseUrl = "https://linux9594.github.io/compressor-vk";
+  
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": baseUrl
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Features",
+        "item": `${baseUrl}/features`
+      }
+    ]
+  };
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -127,7 +148,7 @@ const Features = () => {
         description="Discover our comprehensive collection of free PDF and image tools. Compress, convert, merge, and split PDFs. All tools work in your browser with complete privacy and no watermarks."
         keywords="pdf tools, image tools, pdf compressor, pdf converter, merge pdf, split pdf, free pdf tools, online document tools"
         canonical="/features"
-        schema={faqSchema}
+        schema={[breadcrumbSchema, faqSchema]}
       />
       <Header />
       
