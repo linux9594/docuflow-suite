@@ -6,7 +6,7 @@ interface SEOHeadProps {
   keywords: string;
   canonical: string;
   ogImage?: string;
-  schema?: object;
+  schema?: object | object[];
 }
 
 export const SEOHead = ({ 
@@ -53,9 +53,19 @@ export const SEOHead = ({
 
       {/* Schema Markup */}
       {schema && (
-        <script type="application/ld+json">
-          {JSON.stringify(schema)}
-        </script>
+        <>
+          {Array.isArray(schema) ? (
+            schema.map((s, index) => (
+              <script key={index} type="application/ld+json">
+                {JSON.stringify(s)}
+              </script>
+            ))
+          ) : (
+            <script type="application/ld+json">
+              {JSON.stringify(schema)}
+            </script>
+          )}
+        </>
       )}
     </Helmet>
   );

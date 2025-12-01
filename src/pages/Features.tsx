@@ -12,7 +12,48 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
+import { SEOHead } from "@/components/SEOHead";
+
 const Features = () => {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are all tools completely free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, all our tools are 100% free with unlimited usage. No hidden fees, no watermarks, and no sign-up required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my data secure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. All processing happens locally in your browser. Your files never leave your device and we don't store or track any data."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to install anything?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No installation needed. All tools work directly in your web browser on any device - desktop, tablet, or mobile."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What file size limits do you have?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our tools can handle most common file sizes. For very large files, processing time may vary depending on your device's capabilities."
+        }
+      }
+    ]
+  };
+
   const features = [
     {
       icon: <FileText className="w-8 h-8" />,
@@ -81,6 +122,13 @@ const Features = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <SEOHead
+        title="Features - Free PDF & Image Tools"
+        description="Discover our comprehensive collection of free PDF and image tools. Compress, convert, merge, and split PDFs. All tools work in your browser with complete privacy and no watermarks."
+        keywords="pdf tools, image tools, pdf compressor, pdf converter, merge pdf, split pdf, free pdf tools, online document tools"
+        canonical="/features"
+        schema={faqSchema}
+      />
       <Header />
       
       <main className="flex-1 py-16">
