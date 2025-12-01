@@ -1,7 +1,9 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 const NotFound = () => {
+  const baseUrl = "https://linux9594.github.io/compressor-vk";
   const location = useLocation();
 
   useEffect(() => {
@@ -10,6 +12,11 @@ const NotFound = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-muted">
+      <Helmet>
+        <title>404 - Page Not Found | PDF COMPRESSOR</title>
+        <meta name="description" content="The page you're looking for doesn't exist. Return to PDF COMPRESSOR for free online PDF tools including compression, conversion, merging and more." />
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
       <div className="text-center">
         <h1 className="mb-4 text-4xl font-bold">404</h1>
         <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>

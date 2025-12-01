@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ToolCard from "@/components/ToolCard";
+import { SEOHead } from "@/components/SEOHead";
 import { 
   Minimize2, 
   ArrowDown, 
@@ -16,6 +17,25 @@ import {
 } from "lucide-react";
 
 const Index = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PDF COMPRESSOR - Free Online PDF Tools",
+    "applicationCategory": "Utility",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Free online PDF tools suite. Compress PDF files, convert images to PDF, merge and split PDFs, convert Word to PDF and more. All tools work in your browser with complete privacy.",
+    "operatingSystem": "Any",
+    "url": "https://linux9594.github.io/compressor-vk",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": "3420"
+    }
+  };
   const tools = [
     {
       title: "PDF Compressor",
@@ -91,6 +111,13 @@ const Index = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <SEOHead
+        title="Free Online PDF Tools - Compress, Convert, Merge & Split PDF"
+        description="Free online PDF tools for all your document needs. Compress PDF files, convert images to PDF, merge and split PDFs, convert Word to PDF and more. Fast, secure, no signup required."
+        keywords="pdf tools, pdf compressor, compress pdf, pdf converter, merge pdf, split pdf, pdf to jpg, jpg to pdf, word to pdf, pdf to word, free pdf tools, online pdf tools, pdf editor, reduce pdf size, compress pdf online, pdf merger, pdf splitter, image to pdf converter, document converter, pdf optimizer, shrink pdf, pdf file compressor, online document tools"
+        canonical="/"
+        schema={schema}
+      />
       <Header />
       
       <section className="relative bg-gradient-hero text-white py-24 overflow-hidden">

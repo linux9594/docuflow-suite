@@ -28,7 +28,8 @@ const TermsOfService = () => {
     <div className="flex flex-col min-h-screen">
       <Helmet>
         <title>Terms of Service | PDF COMPRESSOR - Free Online Tool</title>
-        <meta name="description" content="Terms of Service for PDF COMPRESSOR. Read our terms and conditions for using our free online PDF and image tools." />
+        <meta name="description" content="Terms of Service for PDF COMPRESSOR. Read our terms and conditions for using our free online PDF and image tools. User agreements and service terms." />
+        <meta name="keywords" content="terms of service, terms and conditions, user agreement, service terms, pdf tools terms, usage policy" />
         <link rel="canonical" href={`${baseUrl}/terms-of-service`} />
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}

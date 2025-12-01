@@ -28,7 +28,8 @@ const PrivacyPolicy = () => {
     <div className="flex flex-col min-h-screen">
       <Helmet>
         <title>Privacy Policy | PDF COMPRESSOR - Free Online Tool</title>
-        <meta name="description" content="Privacy policy for PDF COMPRESSOR. Learn how we protect your data and ensure complete privacy with client-side processing." />
+        <meta name="description" content="Privacy policy for PDF COMPRESSOR. Learn how we protect your data and ensure complete privacy with client-side processing. No data collection, no uploads to servers." />
+        <meta name="keywords" content="privacy policy, data protection, client-side processing, secure pdf tools, privacy, data security, no upload pdf tools, browser-based pdf tools" />
         <link rel="canonical" href={`${baseUrl}/privacy-policy`} />
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}

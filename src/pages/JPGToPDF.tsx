@@ -75,7 +75,7 @@ const JPGToPDF = () => {
       <SEOHead
         title="JPG to PDF Converter Online Free - Convert Images to PDF"
         description="Convert JPG to PDF online for free. Transform JPEG, PNG, and other image formats to PDF. Combine multiple images into one PDF. Fast, secure, browser-based. Convert now!"
-        keywords="jpg to pdf, jpeg to pdf, image to pdf, png to pdf, convert jpg to pdf, jpg to pdf converter, image to pdf converter, pictures to pdf"
+        keywords="jpg to pdf, jpeg to pdf, image to pdf, png to pdf, convert jpg to pdf, jpg to pdf converter, image to pdf converter, pictures to pdf, how to convert jpg to pdf, photo to pdf, jpg to pdf online free, convert jpeg to pdf online, images to pdf converter, multiple images to pdf, combine images into pdf, merge images to pdf, picture to pdf converter, photo to pdf online, convert images to pdf free"
         canonical="/jpg-to-pdf"
         schema={schema}
       />

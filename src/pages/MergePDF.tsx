@@ -82,7 +82,7 @@ const MergePDF = () => {
       <SEOHead
         title="Merge PDF Online Free - Combine Multiple PDF Files Into One"
         description="Merge PDF files online for free. Combine multiple PDF documents into a single file. Fast, secure, browser-based. No signup required. Merge PDF files now!"
-        keywords="merge pdf, combine pdf, pdf merger, merge pdf files online, combine pdf files, pdf combiner, join pdf, merge pdf online free, pdf merge tool"
+        keywords="merge pdf, combine pdf, pdf merger, merge pdf files online, combine pdf files, pdf combiner, join pdf, merge pdf online free, pdf merge tool, how to merge pdf files, merge two pdf files, combine multiple pdf into one, merge pdf documents, join pdf files, concatenate pdf, merge pdf pages, combine pdf online, pdf joiner, merge pdf files into one, unite pdf files, merge pdf free online, combine pdf files free"
         canonical="/merge-pdf"
         schema={schema}
       />

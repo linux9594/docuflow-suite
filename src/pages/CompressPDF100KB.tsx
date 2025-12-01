@@ -85,7 +85,7 @@ const CompressPDF100KB = () => {
       <SEOHead
         title="Compress PDF to 100KB Online Free - Reduce PDF Size to 100KB"
         description="Compress PDF to 100KB or less for free. Perfect for email attachments and online forms. Fast, secure, browser-based PDF compression. No upload limits. Compress PDF to 100KB now!"
-        keywords="compress pdf to 100kb, reduce pdf to 100kb, pdf compressor 100kb, compress pdf file to 100kb, pdf size reducer 100kb, make pdf 100kb, shrink pdf to 100kb"
+        keywords="compress pdf to 100kb, reduce pdf to 100kb, pdf compressor 100kb, compress pdf file to 100kb, pdf size reducer 100kb, make pdf 100kb, shrink pdf to 100kb, how to compress pdf to 100kb, compress pdf below 100kb, compress pdf under 100kb, reduce pdf size to 100kb online free, compress pdf for email 100kb, compress pdf to specific size, make pdf file 100kb, pdf to 100kb converter, compress pdf to 100kb or less, compress pdf to exact size"
         canonical="/compress-pdf-100kb"
         schema={schema}
       />
