@@ -54,25 +54,57 @@ const PDFCompressor = () => {
     }
   };
 
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "PDF Compressor",
-    "applicationCategory": "Utility",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
+  const schema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "PDF Compressor",
+      "applicationCategory": "Utility",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Free online PDF compressor tool. Reduce PDF file size up to 90% while maintaining quality. Fast, secure, and browser-based. No upload limits, completely free.",
+      "operatingSystem": "Any",
+      "url": "https://linux9594.github.io/compressor-vk/pdf-compressor",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1250"
+      }
     },
-    "description": "Free online PDF compressor tool. Reduce PDF file size up to 90% while maintaining quality. Fast, secure, and browser-based. No upload limits, completely free.",
-    "operatingSystem": "Any",
-    "url": "https://linux9594.github.io/compressor-vk/pdf-compressor",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "ratingCount": "1250"
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is your PDF compressor free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, completely free with no account needed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it reduce quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It optimizes size while keeping text readable and images clear."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you store my files?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, all processing happens inside your browser for full privacy."
+          }
+        }
+      ]
     }
-  };
+  ];
 
   return (
     <div className="flex flex-col min-h-screen">
