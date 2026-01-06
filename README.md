@@ -1,75 +1,132 @@
-# Welcome to your Lovable project
+# DocuTools Pro
 
-## Project info
+A professional, enterprise-grade web application for document processing and file management. Built with modern technologies for optimal performance, security, and user experience.
 
-**URL**: https://lovable.dev/projects/f4a73f81-7729-4537-bb9d-6f38383218cd
+## Overview
 
-## How can I edit this code?
+DocuTools Pro is a comprehensive suite of online document tools designed for professionals, businesses, and individuals who need fast, secure, and reliable file processing. All operations are performed entirely in the browser—your files never leave your device.
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+### Document Processing
+- **PDF Compression** — Reduce PDF file sizes while maintaining quality
+- **Targeted Compression** — Compress PDFs to specific sizes (100KB, 200KB)
+- **PDF Merging** — Combine multiple PDF documents into one
+- **PDF Splitting** — Divide large PDFs into smaller, manageable files
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f4a73f81-7729-4537-bb9d-6f38383218cd) and start prompting.
+### File Conversion
+- **JPG to PDF** — Convert images to PDF documents
+- **PDF to JPG** — Extract images from PDF files
+- **Word to PDF** — Convert DOCX documents to PDF format
+- **PDF to Word** — Transform PDFs into editable Word documents
 
-Changes made via Lovable will be committed automatically to this repo.
+### Image Optimization
+- **Image Compression** — Optimize JPG and PNG files for web use
 
-**Use your preferred IDE**
+## Key Benefits
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **100% Browser-Based** — All processing happens locally in your browser
+- **Complete Privacy** — Files are never uploaded to external servers
+- **No Registration** — Use all tools immediately without creating an account
+- **Fast Processing** — Leverage modern browser APIs for optimal speed
+- **Cross-Platform** — Works on any device with a modern web browser
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Technology Stack
 
-Follow these steps:
+- **React 18** — Modern component-based UI architecture
+- **TypeScript** — Type-safe development experience
+- **Vite** — Next-generation frontend build tool
+- **Tailwind CSS** — Utility-first CSS framework
+- **PDF-lib** — Pure JavaScript PDF manipulation
+- **JSZip** — Client-side file compression
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## Getting Started
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Prerequisites
 
-# Step 3: Install the necessary dependencies.
-npm i
+- Node.js 18.x or higher
+- npm 9.x or higher
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/docutools-pro.git
+
+# Navigate to project directory
+cd docutools-pro
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build for Production
 
-**Use GitHub Codespaces**
+```bash
+# Create production build
+npm run build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Preview production build locally
+npm run preview
+```
 
-## What technologies are used for this project?
+## Deployment
 
-This project is built with:
+### GitHub Pages
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+This project includes automatic deployment to GitHub Pages via GitHub Actions.
 
-## How can I deploy this project?
+1. Push your code to the `main` branch
+2. Go to repository Settings → Pages
+3. Under "Build and deployment", select "GitHub Actions"
+4. The site will be automatically deployed on each push to `main`
 
-Simply open [Lovable](https://lovable.dev/projects/f4a73f81-7729-4537-bb9d-6f38383218cd) and click on Share -> Publish.
+### Other Platforms
 
-## Can I connect a custom domain to my Lovable project?
+The production build (`dist/` folder) can be deployed to any static hosting service:
 
-Yes, you can!
+- **Netlify** — Drag and drop the `dist` folder
+- **Vercel** — Import the repository and configure build settings
+- **AWS S3** — Upload `dist` contents to an S3 bucket with static hosting
+- **Cloudflare Pages** — Connect your repository for automatic deployments
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Project Structure
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+```
+docutools-pro/
+├── public/              # Static assets
+├── src/
+│   ├── components/      # Reusable UI components
+│   │   └── ui/          # Base UI components
+│   ├── pages/           # Page components
+│   ├── utils/           # Utility functions
+│   ├── hooks/           # Custom React hooks
+│   └── lib/             # Library configurations
+├── .github/
+│   └── workflows/       # GitHub Actions workflows
+└── index.html           # Entry HTML file
+```
 
-https://regal-doc-suite.lovable.app
+## Browser Support
+
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+
+## Contributing
+
+Contributions are welcome. Please read our contributing guidelines before submitting pull requests.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+---
+
+© 2026 DocuTools Pro. All rights reserved.

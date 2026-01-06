@@ -68,24 +68,24 @@ const CompressPDF100KB = () => {
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Compress PDF to 100KB",
+    "name": "Compress PDF to 100KB - DocuTools Pro",
     "applicationCategory": "Utility",
     "offers": {
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD"
     },
-    "description": "Compress PDF to 100KB or less online free. Perfect for email attachments and online forms. Fast, secure compression with quality preservation.",
+    "description": "Compress PDF to 100KB or less for strict upload requirements. Perfect for exam forms, scholarship portals, and government document submissions.",
     "operatingSystem": "Any",
-    "url": "https://linux9594.github.io/compressor-vk/compress-pdf-100kb"
+    "url": "https://yourdomain.com/compress-pdf-100kb"
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-background">
       <SEOHead
-        title="Compress PDF to 100KB Online Free - Reduce PDF Size to 100KB"
-        description="Compress PDF to 100KB or less for free. Perfect for email attachments and online forms. Fast, secure, browser-based PDF compression. No upload limits. Compress PDF to 100KB now!"
-        keywords="compress pdf to 100kb, reduce pdf to 100kb, pdf compressor 100kb, compress pdf file to 100kb, pdf size reducer 100kb, make pdf 100kb, shrink pdf to 100kb, how to compress pdf to 100kb, compress pdf below 100kb, compress pdf under 100kb, reduce pdf size to 100kb online free, compress pdf for email 100kb, compress pdf to specific size, make pdf file 100kb, pdf to 100kb converter, compress pdf to 100kb or less, compress pdf to exact size"
+        title="Compress PDF to 100KB - For Exam Forms & Strict Upload Limits"
+        description="Compress PDF to 100KB or less for exam forms, scholarship applications, and government portals with strict file size requirements. Free, secure, browser-based compression."
+        keywords="compress pdf to 100kb, reduce pdf to 100kb, pdf compressor 100kb, compress pdf for exam form, compress pdf for scholarship, pdf size reducer 100kb, shrink pdf to 100kb, compress pdf under 100kb"
         canonical="/compress-pdf-100kb"
         schema={schema}
       />
@@ -95,18 +95,18 @@ const CompressPDF100KB = () => {
       <main className="flex-1 py-12">
         <div className="container mx-auto px-6 max-w-3xl">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-black mb-4 text-foreground">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
               Compress PDF to 100KB
             </h1>
-            <p className="text-lg text-muted-foreground">
-              Drastically reduce PDF size for minimal bandwidth
+            <p className="text-muted-foreground">
+              Meet strict file size requirements for exam forms and government portals
             </p>
             <div className="mt-4 inline-block bg-accent/10 text-accent px-4 py-2 rounded-lg font-semibold">
               Target Size: 100 KB
             </div>
           </div>
 
-          <div className="bg-card rounded-xl p-8 shadow-card border border-border">
+          <div className="bg-card rounded-lg p-8 shadow-card border border-border">
             <FileUpload
               onFileSelect={handleFileSelect}
               acceptedFileTypes="application/pdf"
@@ -170,23 +170,35 @@ const CompressPDF100KB = () => {
             )}
           </div>
 
-          <section className="mt-16 prose prose-slate dark:prose-invert max-w-4xl mx-auto">
-            <div className="bg-card rounded-xl p-8 border border-border space-y-6">
-              <h2 className="text-3xl font-bold text-foreground">Compress PDF to 100KB</h2>
-              <p className="text-muted-foreground">
-                This tool reduces your PDF file to 100KB for strict upload requirements. Useful for job applications, 
-                scholarship portals, and online verification forms.
+          <section className="mt-16">
+            <div className="bg-card rounded-lg p-8 border border-border space-y-6">
+              <h2 className="text-2xl font-bold text-foreground">Compress PDF to 100KB for Strict Requirements</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Some portals and forms have very strict file size limits of 100KB or less. This tool helps you 
+                compress PDF for exam form submissions, scholarship applications, and government document portals 
+                that require minimal file sizes.
               </p>
-              <h3 className="text-2xl font-bold text-foreground">How to Use</h3>
-              <ol className="list-decimal list-inside text-muted-foreground space-y-2">
-                <li>Select your PDF.</li>
-                <li>Wait a few seconds as the file is optimized.</li>
-                <li>Download your compressed 100KB PDF.</li>
+              
+              <h3 className="text-xl font-semibold text-foreground">Ideal Use Cases</h3>
+              <ul className="text-muted-foreground space-y-2">
+                <li>• Compress PDF for competitive exam applications</li>
+                <li>• Reduce PDF size for scholarship portal uploads</li>
+                <li>• Secure PDF compressor without uploading files to server</li>
+                <li>• Online PDF compression for government verification</li>
+                <li>• Fast compression for urgent document submissions</li>
+              </ul>
+              
+              <h3 className="text-xl font-semibold text-foreground">How to Use</h3>
+              <ol className="text-muted-foreground space-y-2 list-decimal list-inside">
+                <li>Select your PDF file using the upload area</li>
+                <li>Click "Compress to 100KB" to optimize</li>
+                <li>Download your compressed PDF for submission</li>
               </ol>
-              <h3 className="text-2xl font-bold text-foreground">Related Tools</h3>
-              <ul className="list-disc list-inside space-y-2">
-                <li><Link to="/compress-pdf-200kb" className="text-primary hover:underline">Compress PDF to 200KB</Link></li>
-                <li><Link to="/pdf-to-jpg" className="text-primary hover:underline">PDF to JPG</Link></li>
+              
+              <h3 className="text-xl font-semibold text-foreground">Related Tools</h3>
+              <ul className="space-y-2">
+                <li><Link to="/compress-pdf-200kb" className="text-primary hover:underline">Compress PDF to 200KB</Link> — For less strict requirements</li>
+                <li><Link to="/pdf-to-jpg" className="text-primary hover:underline">PDF to JPG</Link> — Extract images from PDF</li>
               </ul>
             </div>
           </section>

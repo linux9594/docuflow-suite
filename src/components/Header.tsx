@@ -1,18 +1,23 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home } from "lucide-react";
+import { Home, FileText } from "lucide-react";
 
 const Header = () => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
   return (
-    <header className="bg-card shadow-sm">
+    <header className="bg-card border-b border-border sticky top-0 z-50 backdrop-blur-sm bg-card/95">
       <div className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
-          <Link to="/" className="text-3xl font-black text-foreground tracking-tight hover:text-primary transition-colors">
-            <span className="text-primary mr-0.5">PDF</span> COMPRESSOR
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 bg-gradient-card rounded-lg flex items-center justify-center shadow-button group-hover:shadow-button-hover transition-shadow">
+              <FileText className="w-5 h-5 text-primary-foreground" />
+            </div>
+            <span className="text-xl font-bold text-foreground tracking-tight">
+              DocuTools<span className="text-primary"> Pro</span>
+            </span>
           </Link>
-          <nav className="flex items-center gap-4 md:gap-8">
+          <nav className="flex items-center gap-6">
             {!isHomePage && (
               <Link 
                 to="/" 
@@ -22,12 +27,12 @@ const Header = () => {
                 <span className="hidden sm:inline">Home</span>
               </Link>
             )}
-            <Link to="/features" className="hidden md:block text-muted-foreground font-medium hover:text-primary transition-colors">
+            <Link 
+              to="/features" 
+              className="hidden md:block text-muted-foreground font-medium hover:text-primary transition-colors"
+            >
               Features
             </Link>
-            <a href="#contact" className="hidden md:block text-muted-foreground font-medium hover:text-primary transition-colors">
-              Contact
-            </a>
           </nav>
         </div>
       </div>

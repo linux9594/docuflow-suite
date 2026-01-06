@@ -68,24 +68,24 @@ const CompressPDF200KB = () => {
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Compress PDF to 200KB",
+    "name": "Compress PDF to 200KB - DocuTools Pro",
     "applicationCategory": "Utility",
     "offers": {
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD"
     },
-    "description": "Compress PDF to 200KB or less online free. Ideal for uploads and sharing. Fast, secure compression with quality preservation.",
+    "description": "Compress PDF below 200KB for online applications, government portals, and college admission forms. Fast, secure, browser-based compression.",
     "operatingSystem": "Any",
-    "url": "https://linux9594.github.io/compressor-vk/compress-pdf-200kb"
+    "url": "https://yourdomain.com/compress-pdf-200kb"
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-background">
       <SEOHead
-        title="Compress PDF to 200KB Online Free - Reduce PDF Size to 200KB"
-        description="Compress PDF to 200KB or less for free. Perfect for online uploads and sharing. Fast, secure, browser-based PDF compression. No signup required. Compress PDF to 200KB now!"
-        keywords="compress pdf to 200kb, reduce pdf to 200kb, pdf compressor 200kb, compress pdf file to 200kb, pdf size reducer 200kb, make pdf 200kb, shrink pdf to 200kb, how to compress pdf to 200kb, compress pdf below 200kb, compress pdf under 200kb, reduce pdf size to 200kb online free, compress pdf for upload 200kb, compress pdf to specific size 200kb, make pdf file 200kb, pdf to 200kb converter, compress pdf to 200kb or less, compress pdf to exact size 200kb"
+        title="Compress PDF to 200KB - For Online Applications & Government Forms"
+        description="Compress PDF below 200KB for online job applications, government form submission, and college admission portals. Free, secure, browser-based tool. No file uploads required."
+        keywords="compress pdf to 200kb, reduce pdf to 200kb, pdf compressor 200kb, compress pdf for government forms, compress pdf for job application, pdf size reducer, shrink pdf to 200kb, pdf below 200kb"
         canonical="/compress-pdf-200kb"
         schema={schema}
       />
@@ -95,18 +95,18 @@ const CompressPDF200KB = () => {
       <main className="flex-1 py-12">
         <div className="container mx-auto px-6 max-w-3xl">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-black mb-4 text-foreground">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
               Compress PDF to 200KB
             </h1>
-            <p className="text-lg text-muted-foreground">
-              Achieve a specific file size for uploads and sharing
+            <p className="text-muted-foreground">
+              Meet file size requirements for online applications and government portals
             </p>
             <div className="mt-4 inline-block bg-accent/10 text-accent px-4 py-2 rounded-lg font-semibold">
               Target Size: 200 KB
             </div>
           </div>
 
-          <div className="bg-card rounded-xl p-8 shadow-card border border-border">
+          <div className="bg-card rounded-lg p-8 shadow-card border border-border">
             <FileUpload
               onFileSelect={handleFileSelect}
               acceptedFileTypes="application/pdf"
@@ -170,23 +170,35 @@ const CompressPDF200KB = () => {
             )}
           </div>
 
-          <section className="mt-16 prose prose-slate dark:prose-invert max-w-4xl mx-auto">
-            <div className="bg-card rounded-xl p-8 border border-border space-y-6">
-              <h2 className="text-3xl font-bold text-foreground">Compress PDF to 200KB Online</h2>
-              <p className="text-muted-foreground">
-                Use this tool to reduce your PDF file to under 200KB. Perfect for government exams, online application portals, 
-                scholarship forms, and submission websites that have strict size limits.
+          <section className="mt-16">
+            <div className="bg-card rounded-lg p-8 border border-border space-y-6">
+              <h2 className="text-2xl font-bold text-foreground">Compress PDF Below 200KB for Online Applications</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Many government portals, job application websites, and college admission forms require PDF files 
+                under 200KB. This tool helps you compress PDF for Aadhaar card upload, passport applications, 
+                PAN card forms, and other document submissions that have strict file size limits.
               </p>
-              <h3 className="text-2xl font-bold text-foreground">How to Reduce PDF to 200KB</h3>
-              <ol className="list-decimal list-inside text-muted-foreground space-y-2">
-                <li>Select your PDF file.</li>
-                <li>The tool will automatically compress and optimize it.</li>
-                <li>Download your final 200KB PDF file instantly.</li>
+              
+              <h3 className="text-xl font-semibold text-foreground">Perfect For</h3>
+              <ul className="text-muted-foreground space-y-2">
+                <li>• Compress PDF below 200KB for online job applications</li>
+                <li>• Reduce PDF size for government form submission</li>
+                <li>• Fast PDF compression for college admission forms</li>
+                <li>• PDF compressor for passport, PAN card, and exam forms</li>
+                <li>• Scholarship application document uploads</li>
+              </ul>
+              
+              <h3 className="text-xl font-semibold text-foreground">How to Reduce PDF to 200KB</h3>
+              <ol className="text-muted-foreground space-y-2 list-decimal list-inside">
+                <li>Upload your PDF file above</li>
+                <li>Click "Compress to 200KB" to start optimization</li>
+                <li>Download your compressed PDF ready for submission</li>
               </ol>
-              <h3 className="text-2xl font-bold text-foreground">Related Tools</h3>
-              <ul className="list-disc list-inside space-y-2">
-                <li><Link to="/compress-pdf-100kb" className="text-primary hover:underline">Compress PDF to 100KB</Link></li>
-                <li><Link to="/pdf-compressor" className="text-primary hover:underline">General PDF Compressor</Link></li>
+              
+              <h3 className="text-xl font-semibold text-foreground">Related Tools</h3>
+              <ul className="space-y-2">
+                <li><Link to="/compress-pdf-100kb" className="text-primary hover:underline">Compress PDF to 100KB</Link> — For stricter file size limits</li>
+                <li><Link to="/pdf-compressor" className="text-primary hover:underline">PDF Compressor</Link> — General compression tool</li>
               </ul>
             </div>
           </section>
