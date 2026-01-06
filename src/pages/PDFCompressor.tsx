@@ -58,21 +58,16 @@ const PDFCompressor = () => {
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "PDF Compressor",
+      "name": "PDF Compressor - DocuTools Pro",
       "applicationCategory": "Utility",
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD"
       },
-      "description": "Free online PDF compressor tool. Reduce PDF file size up to 90% while maintaining quality. Fast, secure, and browser-based. No upload limits, completely free.",
+      "description": "Professional PDF compressor for government forms, job applications, and document portals. Reduce PDF file size while maintaining quality.",
       "operatingSystem": "Any",
-      "url": "https://linux9594.github.io/compressor-vk/pdf-compressor",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "ratingCount": "1250"
-      }
+      "url": "https://yourdomain.com/pdf-compressor"
     },
     {
       "@context": "https://schema.org",
@@ -80,26 +75,26 @@ const PDFCompressor = () => {
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Is your PDF compressor free?",
+          "name": "Can I compress PDF for Aadhaar card upload?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, completely free with no account needed."
+            "text": "Yes, our tool compresses PDF files to meet Aadhaar card portal requirements while maintaining document clarity."
           }
         },
         {
           "@type": "Question",
-          "name": "Does it reduce quality?",
+          "name": "Is the PDF compression secure?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It optimizes size while keeping text readable and images clear."
+            "text": "Absolutely. All processing happens in your browser—your files are never uploaded to any server."
           }
         },
         {
           "@type": "Question",
-          "name": "Do you store my files?",
+          "name": "How much can I reduce PDF file size?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No, all processing happens inside your browser for full privacy."
+            "text": "Typically 50-90% reduction depending on the original content. Text-heavy PDFs compress more effectively."
           }
         }
       ]
@@ -107,11 +102,11 @@ const PDFCompressor = () => {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-background">
       <SEOHead
-        title="PDF Compressor Online Free - Reduce PDF File Size"
-        description="Free online PDF compressor tool. Reduce PDF file size up to 90% while maintaining quality. Fast, secure, and browser-based. No upload limits, completely free to use."
-        keywords="pdf compressor, compress pdf, reduce pdf size, compress pdf online, pdf compression, shrink pdf, pdf optimizer, compress pdf file, reduce pdf file size, free pdf compressor, how to compress pdf, make pdf smaller, pdf size reducer, online pdf compressor, compress large pdf, compress pdf without losing quality, best pdf compressor, compress pdf to smaller size, decrease pdf size, minimize pdf size, pdf file size reducer, adobe pdf compressor alternative, smallpdf alternative, ilovepdf alternative, pdf compression tool"
+        title="PDF Compressor - Reduce PDF Size for Government Forms & Applications"
+        description="Compress PDF for Aadhaar card upload, government form submission, and job applications. Free online PDF compressor that works 100% in your browser. No file uploads, complete privacy."
+        keywords="pdf compressor, compress pdf for aadhaar, reduce pdf size for government forms, compress pdf online, pdf compression for job application, shrink pdf for document portal, compress pdf without quality loss, secure pdf compressor"
         canonical="/pdf-compressor"
         schema={schema}
       />
@@ -121,13 +116,13 @@ const PDFCompressor = () => {
       <main className="flex-1 py-12">
         <div className="container mx-auto px-6 max-w-3xl">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-black mb-4 text-foreground">PDF Compressor</h1>
-            <p className="text-lg text-muted-foreground">
-              Reduce PDF file size without compromising quality
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">PDF Compressor</h1>
+            <p className="text-muted-foreground">
+              Reduce PDF file size for government portals, job applications, and online submissions
             </p>
           </div>
 
-          <div className="bg-card rounded-xl p-8 shadow-card border border-border">
+          <div className="bg-card rounded-lg p-8 shadow-card border border-border">
             <FileUpload
               onFileSelect={handleFileSelect}
               acceptedFileTypes="application/pdf"
@@ -191,53 +186,46 @@ const PDFCompressor = () => {
             )}
           </div>
 
-          <section className="mt-16 prose prose-slate dark:prose-invert max-w-4xl mx-auto">
-            <div className="bg-card rounded-xl p-8 border border-border space-y-6">
-              <h2 className="text-3xl font-bold text-foreground">Fast and Free PDF Compressor</h2>
-              <p className="text-muted-foreground">
-                Our online PDF Compressor allows you to reduce PDF size instantly without installing any software. 
-                It works directly in your browser, uses secure on-device processing, and delivers high-quality 
-                compression suitable for job applications, online forms, and email attachments.
+          <section className="mt-16">
+            <div className="bg-card rounded-lg p-8 border border-border space-y-6">
+              <h2 className="text-2xl font-bold text-foreground">Compress PDF for Document Submissions</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Our PDF compressor is designed for real-world document needs. Whether you need to compress PDF 
+                for Aadhaar card upload, reduce file size for government form submission, or optimize documents 
+                for job application portals, this tool delivers professional results instantly.
               </p>
               
-              <h3 className="text-2xl font-bold text-foreground">Why compress PDF?</h3>
-              <p className="text-muted-foreground">
-                Large PDF files are difficult to upload on government portals, college websites, and job portals. 
-                This tool helps you shrink PDF size while maintaining readability and formatting.
-              </p>
+              <h3 className="text-xl font-semibold text-foreground">Common Use Cases</h3>
+              <ul className="text-muted-foreground space-y-2">
+                <li>• Compress PDF for Aadhaar card upload without losing quality</li>
+                <li>• Reduce PDF size for government form submission portals</li>
+                <li>• PDF compressor for passport, PAN card, and exam forms</li>
+                <li>• Compress PDF below 200KB for online job applications</li>
+                <li>• Fast PDF compression for college admission forms</li>
+                <li>• Secure PDF compressor without uploading files to server</li>
+              </ul>
               
-              <h3 className="text-2xl font-bold text-foreground">How to Compress PDF</h3>
-              <ol className="list-decimal list-inside text-muted-foreground space-y-2">
-                <li>Upload your PDF file using the Select button.</li>
-                <li>Wait a few seconds while the tool optimizes all pages.</li>
-                <li>Download your final compressed PDF instantly.</li>
+              <h3 className="text-xl font-semibold text-foreground">How It Works</h3>
+              <ol className="text-muted-foreground space-y-2 list-decimal list-inside">
+                <li>Upload your PDF file using the file selector above</li>
+                <li>Click "Compress PDF" to start the optimization process</li>
+                <li>Download your compressed PDF—ready for any portal or form</li>
               </ol>
               
-              <h3 className="text-2xl font-bold text-foreground">Features</h3>
-              <ul className="list-disc list-inside text-muted-foreground space-y-2">
-                <li>No watermark</li>
-                <li>No installation required</li>
-                <li>100 percent free and unlimited</li>
-                <li>Fast browser-based compression</li>
+              <h3 className="text-xl font-semibold text-foreground">Why Choose This Tool?</h3>
+              <ul className="text-muted-foreground space-y-2">
+                <li>• <strong>100% Browser-Based:</strong> Your files never leave your device</li>
+                <li>• <strong>No Watermarks:</strong> Clean, professional output every time</li>
+                <li>• <strong>No Registration:</strong> Use immediately without creating an account</li>
+                <li>• <strong>Unlimited Usage:</strong> Compress as many files as you need</li>
               </ul>
               
-              <h3 className="text-2xl font-bold text-foreground">Related Tools</h3>
-              <ul className="list-disc list-inside space-y-2">
-                <li><Link to="/compress-pdf-200kb" className="text-primary hover:underline">Compress PDF to 200KB</Link></li>
-                <li><Link to="/compress-pdf-100kb" className="text-primary hover:underline">Compress PDF to 100KB</Link></li>
-                <li><Link to="/image-compressor" className="text-primary hover:underline">Image Compressor</Link></li>
-                <li><Link to="/jpg-to-pdf" className="text-primary hover:underline">JPG to PDF</Link></li>
+              <h3 className="text-xl font-semibold text-foreground">Related Tools</h3>
+              <ul className="space-y-2">
+                <li><Link to="/compress-pdf-200kb" className="text-primary hover:underline">Compress PDF to 200KB</Link> — For portals with 200KB limit</li>
+                <li><Link to="/compress-pdf-100kb" className="text-primary hover:underline">Compress PDF to 100KB</Link> — For strict file size requirements</li>
+                <li><Link to="/image-compressor" className="text-primary hover:underline">Image Compressor</Link> — Optimize images for web upload</li>
               </ul>
-              
-              <h3 className="text-2xl font-bold text-foreground">Frequently Asked Questions</h3>
-              <h4 className="text-lg font-semibold text-foreground">Is your PDF compressor free?</h4>
-              <p className="text-muted-foreground">Yes, completely free with no account needed.</p>
-              
-              <h4 className="text-lg font-semibold text-foreground">Does it reduce quality?</h4>
-              <p className="text-muted-foreground">It optimizes size while keeping text readable and images clear.</p>
-              
-              <h4 className="text-lg font-semibold text-foreground">Do you store my files?</h4>
-              <p className="text-muted-foreground">No, all processing happens inside your browser for full privacy.</p>
             </div>
           </section>
         </div>
